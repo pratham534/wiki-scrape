@@ -24,9 +24,11 @@ export class ScrapingService {
     // Scrape the website using Puppeteer
     try {
       const browser = await puppeteer.launch({
-        headless: true, // Try using headless mode
-        defaultViewport: null,
+        headless: true,
+        executablePath: '/usr/bin/google-chrome',
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
       });
+      
       const page = await browser.newPage();
       await page.goto(url, { waitUntil: ['domcontentloaded', 'networkidle2'] });
 
