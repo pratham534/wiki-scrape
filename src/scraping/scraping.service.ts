@@ -24,7 +24,7 @@ export class ScrapingService {
     // Scrape the website using Puppeteer
     try {
       const browser = await puppeteer.launch({
-        headless: false, // Try using headless mode
+        headless: true, // Try using headless mode
         defaultViewport: null,
       });
       const page = await browser.newPage();
