@@ -20,7 +20,7 @@ export class ReviewService {
     review: string;
   }): Promise<Review> {
     const createdReview = new this.reviewModel(createReviewDto);
-    this.logger.log(createdReview);
+    // this.logger.log(createdReview);
     return createdReview.save();
   }
 
@@ -36,8 +36,8 @@ export class ReviewService {
         pass: process.env.EMAIL_PASS,
       },
       secure: true,
-      logger: true,
-      debug: true,
+      // logger: true,
+      // debug: true,
     });
     const mailOptions = {
       from: createReviewDto.email,
