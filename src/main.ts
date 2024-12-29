@@ -3,11 +3,12 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  await app.listen(3000); // Use port 3000 for local development
   app.enableCors({
-    origin: '*', // Allow all origins
-    methods: 'GET, POST, PUT, PATCH, DELETE, OPTIONS', // Allowed HTTP methods
-    allowedHeaders: '*', // Allow all headers
+    origin: '*',
+    methods: 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+    allowedHeaders: '*',
   });
-  await app.listen(3000);
+  console.log(`🚀 Application is running on: http://localhost:3000`);
 }
 bootstrap();
